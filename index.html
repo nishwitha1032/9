@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Fashion Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product {
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        #cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Fashion Store</h1>
+    </header>
+    <div class="container">
+        <div class="product">
+            <img src="product1.jpg" alt="Product 1">
+            <p>Product Name 1</p>
+            <p>$20</p>
+            <button class="add-to-cart" onclick="addToCart(20)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="product2.jpg" alt="Product 2">
+            <p>Product Name 2</p>
+            <p>$25</p>
+            <button class="add-to-cart" onclick="addToCart(25)">Add to Cart</button>
+        </div>
+    </div>
+    <button id="cart">Cart: $0</button>
+    <footer>
+        <button onclick="calculateCartTotal()">Checkout</button>
+        <button>Contact Us</button>
+    </footer>
+
+    <script>
+        let cartItems = [];
+
+        function addToCart(price) {
+            cartItems.push(price);
+            document.getElementById('cart').innerText = `Cart: $${calculateCartTotal()}`;
+        }
+
+        function calculateCartTotal() {
+            let total = 0;
+            cartItems.forEach(item => {
+                total += item;
+            });
+            return total;
+        }
+    </script>
+</body>
+</html>
